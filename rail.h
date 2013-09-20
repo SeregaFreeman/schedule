@@ -23,16 +23,17 @@ class SchedFunc
 
 public:
 
-    int kurs;
+
     void generate(SchedFunc *timegen, int number);
     void write(SchedFunc *timegen, int number);
     void read(SchedFunc *&timegen, int number);
     void output(SchedFunc *timegen, int number, int type);
+    void setPrice(int);
     void set_name(string name);
     int get_price();
     Time get_deptime();
     Time get_travel_time();
-    int price_convertion();
+
 
 };
 
@@ -43,5 +44,6 @@ int cmp_price(SchedFunc a, SchedFunc b);
 int cmp_deptime(SchedFunc a, SchedFunc b);
 int cmp_traveltime(SchedFunc a, SchedFunc b);
 int time_to_int(Time a);
+int price_convertion(int);
 
 #endif

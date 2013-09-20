@@ -38,7 +38,7 @@ int main()
 
     case 2: //генерация и сортировка
 
-        cout<<"Выберите сортировку:\n1.Сортировка по времени отправления\n2.Сортировка по цене (по возрастанию)\n3. Сортировка по цене (по убыванию)";
+        cout<<"Выберите сортировку:\n1.Сортировка по времени отправления\n2.Сортировка по цене (по убывванию)\n3. Сортировка по цене (по возрастанию)";
         cin>>choice;
         switch(choice)
         {
@@ -50,24 +50,27 @@ int main()
             break;
         case 2:
             system("clear");
+            var.output(timegen, number, type);
             sort(timegen, 0, number-1, cmp_traveltime, order=1);
             var.output(timegen, number, type);
             break;
         case 3: //сортировка по цене (возр)
             system("clear");
+            var.output(timegen, number, type);
             sort(timegen, 0, number-1, cmp_price, order=1);
             var.output(timegen, number, type);
             break;
         case 4: //сортировка по цене (убыв)
             system("clear");
+            var.output(timegen, number, type);
             sort(timegen, 0, number-1, cmp_price, order=-1);
             var.output(timegen,number, type);
             break;
-        case 8:
-            system("clear");
+
 
         }
         break;
+
 
     case 0:
         break;

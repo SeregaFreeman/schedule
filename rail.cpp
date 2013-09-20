@@ -8,16 +8,15 @@ using namespace std;
 SchedFunc a;
 SchedFunc b;
 
-int SchedFunc::price_convertion()
-{
-    kurs=9000;
-    return price/kurs;
-}
-
 void SchedFunc::set_name(string name)
 {
     unit=name;
 }
+void SchedFunc::setPrice(int pricen)
+{
+    price=pricen;
+}
+
 
 int SchedFunc::get_price()
 {
@@ -111,11 +110,15 @@ void SchedFunc::read(SchedFunc *&timegen, int number) //чтение файла 
 }
 
 
+int price_convertion(int pricen)
+{
+    int kurs=9000;
+    return pricen=pricen/kurs;
+}
+
 
 void SchedFunc::output(SchedFunc *timegen, int number, int type) //функция вывода
 {
-
-
     cout<<"Тип поезда"<<"    Цена билета"<<"     Время отправления"<<"    Время в пути"<<endl;
     cout<<"=================================================================="<<endl;
     for (int i=0; i<number; ++i)
@@ -130,12 +133,11 @@ void SchedFunc::output(SchedFunc *timegen, int number, int type) //функци�
         }
         else if (type==2)
         {
-            timegen[i].price=price_convertion();
+
             cout.width(10);
-            cout<<timegen[i].price<<" USD";
+            cout<<price_convertion(timegen[i].price)<<" USD";
+
         }
-
-
         cout<<"          ";
         if (timegen[i].departure_time.hour<10)
             cout<<'0';
